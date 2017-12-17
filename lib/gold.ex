@@ -294,7 +294,7 @@ defmodule Gold do
 
     headers = ["Authorization": "Basic " <> Base.encode64(user <> ":" <> password)]
 
-    options = [timeout: 90000, recv_timeout: 60000]
+    options = [timeout: 600000, recv_timeout: 600000]
 
     case HTTPoison.post("http://" <> hostname <> ":" <> to_string(port) <> "/", Poison.encode!(command), headers, options) do
       {:ok, %{status_code: 200, body: body}} ->
